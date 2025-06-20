@@ -1,5 +1,6 @@
 package io.github.sceneview.ar
 
+import android.util.Log
 import android.view.MotionEvent
 import android.widget.FrameLayout
 import androidx.activity.ComponentActivity
@@ -305,7 +306,18 @@ fun ARScene(
                 onViewUpdated?.invoke(sceneView)
             },
             onReset = {},
-            onRelease = { sceneView -> sceneView.destroy() }
+            onRelease = { sceneView ->
+                try {
+                    Log.d("ARScene", "Releasing ARSceneView")
+                    sceneView.arCore.destroy()
+                    sceneView.session?.close()
+                    sceneView.scene.removeEntities(sceneView.scene.entities)
+                    sceneView.destroy()
+                }
+                catch (e:Exception){
+                    e.message?.let { Log.e("error arscene", it) }
+                }
+            }
         )
     }
 }

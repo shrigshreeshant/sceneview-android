@@ -45,6 +45,7 @@ import com.google.android.filament.gltfio.Gltfio
 import com.google.android.filament.utils.KTX1Loader
 import com.google.android.filament.utils.Manipulator
 import com.google.android.filament.utils.Utils
+import com.google.ar.sceneform.rendering.ResourceManager
 import dev.romainguy.kotlin.math.Float2
 import io.github.sceneview.collision.CollisionSystem
 import io.github.sceneview.collision.HitResult
@@ -694,7 +695,7 @@ open class SceneView @JvmOverloads constructor(
             defaultCameraNode?.destroy()
             defaultMainLight?.destroy()
 
-//        runCatching { ResourceManager.getInstance().destroyAllResources() }
+        runCatching { ResourceManager.getInstance().destroyAllResources() }
 
             defaultRenderer?.let { engine.safeDestroyRenderer(it) }
             defaultView?.let { engine.safeDestroyView(it) }

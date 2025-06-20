@@ -91,4 +91,3 @@ dependencies {
     api "com.google.ar:core:1.48.0"
 }
 
-apply plugin: "com.vanniktech.maven.publish"
