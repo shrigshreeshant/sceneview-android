@@ -768,7 +768,7 @@ open class SceneView @JvmOverloads constructor(
 
             Log.d("SceneView", "Destroy complete")
         }
-
+    }
 
         /**
      * Callback that occurs for each display frame. Updates the scene and reposts itself to be
