@@ -687,90 +687,33 @@ open class SceneView @JvmOverloads constructor(
      * Meaning that they are already self destroyed when they receive the `onDestroy()` callback.
      */
     open fun destroy() {
-        fun destroy() {
-            Log.d("SceneView", "destroy() called")
+        if (!isDestroyed) {
 
-            if (isDestroyed) {
-                Log.w("SceneView", "destroy() aborted: already destroyed")
-                return
-            }
-
-            isDestroyed = true // Mark early to avoid reentrancy
-
-            Log.d("SceneView", "Destroying SceneView resources...")
 
             lifecycle = null
-
-            Log.d("SceneView", "Removing frame callback")
             Choreographer.getInstance().removeFrameCallback(frameCallback)
 
-            runCatching {
-                Log.d("SceneView", "Detaching UIHelper")
-                uiHelper.detach()
-            }.onFailure {
-                Log.e("SceneView", "Failed to detach uiHelper", it)
-            }
+            runCatching { uiHelper.detach() }
 
-            runCatching {
-                Log.d("SceneView", "Destroying camera node")
-                defaultCameraNode?.destroy()
-            }
+            defaultCameraNode?.destroy()
+            defaultMainLight?.destroy()
 
-            runCatching {
-                Log.d("SceneView", "Destroying main light")
-                defaultMainLight?.destroy()
-            }
+        runCatching { ResourceManager.getInstance().destroyAllResources() }
 
-            runCatching {
-                Log.d("SceneView", "Destroying all resources")
-                ResourceManager.getInstance().destroyAllResources()
-            }
+            defaultRenderer?.let { engine.safeDestroyRenderer(it) }
+            defaultView?.let { engine.safeDestroyView(it) }
+            defaultScene?.let { engine.safeDestroyScene(it) }
+            defaultEnvironmentLoader?.destroy()
+            defaultMaterialLoader?.let { engine.safeDestroyMaterialLoader(it) }
+            defaultModelLoader?.let { engine.safeDestroyModelLoader(it) }
 
-            runCatching {
-                Log.d("SceneView", "Destroying renderer")
-                defaultRenderer?.let { engine.safeDestroyRenderer(it) }
-            }
-
-            runCatching {
-                Log.d("SceneView", "Destroying view")
-                defaultView?.let { engine.safeDestroyView(it) }
-            }
-
-            runCatching {
-                Log.d("SceneView", "Destroying scene")
-                defaultScene?.let { engine.safeDestroyScene(it) }
-            }
-
-            runCatching {
-                Log.d("SceneView", "Destroying environment loader")
-                defaultEnvironmentLoader?.destroy()
-            }
-
-            runCatching {
-                Log.d("SceneView", "Destroying material loader")
-                defaultMaterialLoader?.let { engine.safeDestroyMaterialLoader(it) }
-            }
-
-            runCatching {
-                Log.d("SceneView", "Destroying model loader")
-                defaultModelLoader?.let { engine.safeDestroyModelLoader(it) }
-            }
-
-            runCatching {
-                Log.d("SceneView", "Destroying engine")
-                defaultEngine?.safeDestroy()
-            }
-
-            runCatching {
-                Log.d("SceneView", "Destroying EGL context")
-                defaultEglContext?.let { OpenGL.destroyEglContext(it) }
-            }
-
-            Log.d("SceneView", "Destroy complete")
+            defaultEngine?.let { it.safeDestroy() }
+            defaultEglContext?.let { OpenGL.destroyEglContext(it) }
+            isDestroyed = true
         }
     }
 
-        /**
+    /**
      * Callback that occurs for each display frame. Updates the scene and reposts itself to be
      * called by the choreographer on the next frame.
      *
