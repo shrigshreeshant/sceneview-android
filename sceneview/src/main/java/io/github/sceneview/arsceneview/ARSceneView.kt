@@ -2,6 +2,7 @@ package io.github.sceneview.arsceneview
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.util.Size
 import android.view.MotionEvent
 import android.widget.FrameLayout
@@ -577,16 +578,55 @@ open class ARSceneView @JvmOverloads constructor(
     )
 
     override fun destroy() {
-        if (!isDestroyed) {
-            runCatching { defaultCameraNode?.destroy() }
-            runCatching { defaultCameraStream?.destroy() }
+        Log.d("ArSceneView", "destroy() called")
 
-            runCatching { lightEstimator?.destroy() }
-            runCatching { planeRenderer.destroy() }
-            runCatching { destroyArCore() }
+        if (!isDestroyed) {
+            Log.d("ArSceneView", "Destroying AR-specific components")
+
+            runCatching {
+                Log.d("ArSceneView", "Destroying defaultCameraNode")
+                defaultCameraNode?.destroy()
+            }.onFailure {
+                Log.e("ArSceneView", "Failed to destroy defaultCameraNode", it)
+            }
+
+            runCatching {
+                Log.d("ArSceneView", "Destroying defaultCameraStream")
+                defaultCameraStream?.destroy()
+            }.onFailure {
+                Log.e("ArSceneView", "Failed to destroy defaultCameraStream", it)
+            }
+
+            runCatching {
+                Log.d("ArSceneView", "Destroying lightEstimator")
+                lightEstimator?.destroy()
+            }.onFailure {
+                Log.e("ArSceneView", "Failed to destroy lightEstimator", it)
+            }
+
+            runCatching {
+                Log.d("ArSceneView", "Destroying planeRenderer")
+                planeRenderer.destroy()
+            }.onFailure {
+                Log.e("ArSceneView", "Failed to destroy planeRenderer", it)
+            }
+
+            runCatching {
+                Log.d("ArSceneView", "Calling destroyArCore()")
+                destroyArCore()
+            }.onFailure {
+                Log.e("ArSceneView", "Failed to destroy ARCore", it)
+            }
+        } else {
+            Log.w("ArSceneView", "destroy() called, but already destroyed")
         }
 
-        runCatching { super.destroy() }
+        runCatching {
+            Log.d("ArSceneView", "Calling super.destroy()")
+            super.destroy()
+        }.onFailure {
+            Log.e("ArSceneView", "Failed to call super.destroy()", it)
+        }
     }
 
     private fun destroyArCore() {
