@@ -12,9 +12,17 @@ android {
     defaultConfig {
         applicationId "io.github.sceneview.sample.gltfcamera"
         minSdk 28
-        targetSdk 35
+        targetSdk 35g
         versionCode 1
         versionName "1.0.0"
+    }
+    buildTypes {
+        release {
+            // This skips some heavy processing
+            cruncherEnabled = false
+            shrinkResources false
+            minifyEnabled false
+        }
     }
 
     buildTypes {
