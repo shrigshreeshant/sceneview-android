@@ -200,6 +200,7 @@ android {
 }
 
 dependencies {
+
     // Android KTX
     implementation "androidx.fragment:fragment-ktx:1.8.6"
 
@@ -223,18 +224,18 @@ dependencies {
 }
 
 // JitPack publishing configuration
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release
-                groupId = 'com.github.shrigshreeshant'
-                artifactId = 'sceneview'
-                version = project.findProperty('VERSION_NAME') ?: '1.0.0'
-            }
-        }
-    }
-}
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            release(MavenPublication) {
+//                from components.release
+//                groupId = 'com.github.shrigshreeshant'
+//                artifactId = 'sceneview'
+//                version = project.findProperty('VERSION_NAME') ?: '1.0.0'
+//            }
+//        }
+//    }
+//}
 
 // Remove the old maven publish plugin
 //apply plugin: "com.vanniktech.maven.publish"
