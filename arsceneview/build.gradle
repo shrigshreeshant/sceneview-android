@@ -4,6 +4,7 @@ plugins {
     id 'filament-tools-plugin'
     id 'org.jetbrains.dokka'
     id 'org.jetbrains.kotlin.plugin.compose'
+    id 'maven-publish' // added code
 }
 
 // *************************************************************************************************
@@ -91,3 +92,15 @@ dependencies {
     api "com.google.ar:core:1.48.0"
 }
 
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.shrigshreeshant'
+                artifactId = 'arsceneview'
+                version = project.findProperty('VERSION_NAME') ?: '1.0.0'
+            }
+        }
+    }
+}
