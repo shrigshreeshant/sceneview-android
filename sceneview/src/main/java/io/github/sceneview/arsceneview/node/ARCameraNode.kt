@@ -1,4 +1,4 @@
-package io.github.sceneview.ar.node
+package io.github.sceneview.arsceneview.node
 
 import com.google.android.filament.Engine
 import com.google.ar.core.Camera
@@ -6,9 +6,9 @@ import com.google.ar.core.Frame
 import com.google.ar.core.Pose
 import com.google.ar.core.Session
 import com.google.ar.core.TrackingState
-import io.github.sceneview.ar.ARSceneView
-import io.github.sceneview.ar.arcore.getProjectionTransform
-import io.github.sceneview.ar.arcore.transform
+import io.github.sceneview.arsceneview.ARSceneView
+import io.github.sceneview.arsceneview.arcore.getProjectionTransform
+import io.github.sceneview.arsceneview.arcore.transform
 import io.github.sceneview.node.CameraNode
 
 /**

@@ -1,4 +1,4 @@
-package io.github.sceneview.ar.camera
+package io.github.sceneview.arsceneview.camera
 
 import android.util.Log
 import com.google.android.filament.Engine

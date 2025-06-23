@@ -1,4 +1,4 @@
-package io.github.sceneview.ar.arcore
+package io.github.sceneview.arsceneview.arcore
 
 import com.google.ar.core.AugmentedFace
 import com.google.ar.core.AugmentedImage

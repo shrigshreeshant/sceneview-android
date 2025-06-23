@@ -1,4 +1,4 @@
-package io.github.sceneview.ar
+package io.github.sceneview.arsceneview
 
 import com.google.ar.core.*
 import io.github.sceneview.SceneView

@@ -1,4 +1,4 @@
-package io.github.sceneview.ar.arcore
+package io.github.sceneview.arsceneview.arcore
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -12,7 +12,7 @@ import com.google.ar.core.Session
 import com.google.ar.core.exceptions.CameraNotAvailableException
 import com.google.ar.core.exceptions.MissingGlContextException
 import com.google.ar.core.exceptions.SessionPausedException
-import io.github.sceneview.ar.node.ARCameraNode
+import io.github.sceneview.arsceneview.node.ARCameraNode
 
 class ARSession(
     context: Context,

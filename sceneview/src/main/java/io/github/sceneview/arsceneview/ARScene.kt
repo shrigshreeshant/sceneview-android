@@ -1,4 +1,4 @@
-package io.github.sceneview.ar
+package io.github.sceneview.arsceneview
 
 import android.util.Log
 import android.view.MotionEvent
@@ -29,10 +29,10 @@ import com.google.ar.core.Frame
 import com.google.ar.core.Session
 import com.google.ar.core.TrackingFailureReason
 import com.google.ar.core.TrackingState
-import io.github.sceneview.ar.arcore.configure
-import io.github.sceneview.ar.arcore.getUpdatedTrackables
-import io.github.sceneview.ar.camera.ARCameraStream
-import io.github.sceneview.ar.node.ARCameraNode
+import io.github.sceneview.arsceneview.arcore.configure
+import io.github.sceneview.arsceneview.arcore.getUpdatedTrackables
+import io.github.sceneview.arsceneview.camera.ARCameraStream
+import io.github.sceneview.arsceneview.node.ARCameraNode
 import io.github.sceneview.collision.CollisionSystem
 import io.github.sceneview.collision.HitResult
 import io.github.sceneview.environment.Environment

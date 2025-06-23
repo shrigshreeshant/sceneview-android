@@ -1,4 +1,4 @@
-package io.github.sceneview.ar.scene
+package io.github.sceneview.arsceneview.scene
 
 import android.util.Size
 import com.google.android.filament.Engine
@@ -10,14 +10,14 @@ import com.google.ar.core.Plane
 import com.google.ar.core.Session
 import com.google.ar.core.TrackingState
 import dev.romainguy.kotlin.math.Float3
-import io.github.sceneview.ar.PlaneVisualizer
-import io.github.sceneview.ar.arcore.firstByTypeOrNull
-import io.github.sceneview.ar.arcore.fps
-import io.github.sceneview.ar.arcore.getUpdatedPlanes
-import io.github.sceneview.ar.arcore.hitTest
-import io.github.sceneview.ar.arcore.isTracking
-import io.github.sceneview.ar.arcore.position
-import io.github.sceneview.ar.arcore.zDirection
+import io.github.sceneview.arsceneview.PlaneVisualizer
+import io.github.sceneview.arsceneview.arcore.firstByTypeOrNull
+import io.github.sceneview.arsceneview.arcore.fps
+import io.github.sceneview.arsceneview.arcore.getUpdatedPlanes
+import io.github.sceneview.arsceneview.arcore.hitTest
+import io.github.sceneview.arsceneview.arcore.isTracking
+import io.github.sceneview.arsceneview.arcore.position
+import io.github.sceneview.arsceneview.arcore.zDirection
 import io.github.sceneview.loaders.MaterialLoader
 import io.github.sceneview.loaders.ModelLoader
 import io.github.sceneview.material.setParameter

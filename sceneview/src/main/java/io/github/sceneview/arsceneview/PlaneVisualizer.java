@@ -1,4 +1,4 @@
-package io.github.sceneview.ar;
+package io.github.sceneview.arsceneview;
 
 import androidx.annotation.Nullable;
 

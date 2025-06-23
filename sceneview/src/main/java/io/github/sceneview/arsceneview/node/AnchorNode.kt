@@ -1,4 +1,4 @@
-package io.github.sceneview.ar.node
+package io.github.sceneview.arsceneview.node
 
 import android.view.MotionEvent
 import com.google.android.filament.Engine

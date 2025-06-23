@@ -1,4 +1,4 @@
-package io.github.sceneview.ar.node
+package io.github.sceneview.arsceneview.node
 
 import com.google.android.filament.Engine
 import com.google.ar.core.Camera
@@ -9,8 +9,8 @@ import com.google.ar.core.Point
 import com.google.ar.core.Session
 import com.google.ar.core.Trackable
 import com.google.ar.core.TrackingState
-import io.github.sceneview.ar.ARSceneView
-import io.github.sceneview.ar.arcore.firstByTypeOrNull
+import io.github.sceneview.arsceneview.ARSceneView
+import io.github.sceneview.arsceneview.arcore.firstByTypeOrNull
 
 /**
  * AR real time AR HitTest positioned node.

@@ -1,4 +1,4 @@
-package io.github.sceneview.ar
+package io.github.sceneview.arsceneview
 
 import android.content.Context
 import android.util.AttributeSet
@@ -28,15 +28,15 @@ import com.google.ar.core.Session
 import com.google.ar.core.TrackingFailureReason
 import com.google.ar.core.TrackingState
 import io.github.sceneview.SceneView
-import io.github.sceneview.ar.arcore.configure
-import io.github.sceneview.ar.arcore.firstByTypeOrNull
-import io.github.sceneview.ar.arcore.getUpdatedTrackables
-import io.github.sceneview.ar.arcore.isTracking
-import io.github.sceneview.ar.camera.ARCameraStream
-import io.github.sceneview.ar.light.LightEstimator
-import io.github.sceneview.ar.node.ARCameraNode
-import io.github.sceneview.ar.node.PoseNode
-import io.github.sceneview.ar.scene.PlaneRenderer
+import io.github.sceneview.arsceneview.arcore.configure
+import io.github.sceneview.arsceneview.arcore.firstByTypeOrNull
+import io.github.sceneview.arsceneview.arcore.getUpdatedTrackables
+import io.github.sceneview.arsceneview.arcore.isTracking
+import io.github.sceneview.arsceneview.camera.ARCameraStream
+import io.github.sceneview.arsceneview.light.LightEstimator
+import io.github.sceneview.arsceneview.node.ARCameraNode
+import io.github.sceneview.arsceneview.node.PoseNode
+import io.github.sceneview.arsceneview.scene.PlaneRenderer
 import io.github.sceneview.collision.CollisionSystem
 import io.github.sceneview.environment.Environment
 import io.github.sceneview.gesture.GestureDetector

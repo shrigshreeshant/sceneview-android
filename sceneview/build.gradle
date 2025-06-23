@@ -210,6 +210,7 @@ dependencies {
 
     // kotlin-math
     api 'dev.romainguy:kotlin-math:1.5.3'
+    api "com.google.ar:core:1.48.0"
 
     // Filament
     def filament_version = '1.56.0'

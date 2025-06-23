@@ -1,4 +1,4 @@
-package io.github.sceneview.ar.node
+package io.github.sceneview.arsceneview.node
 
 import com.google.android.filament.Engine
 import com.google.ar.core.Anchor
@@ -11,7 +11,7 @@ import com.google.ar.core.Session
 import com.google.ar.core.TrackingState
 import com.google.ar.core.exceptions.ResourceExhaustedException
 import dev.romainguy.kotlin.math.Quaternion
-import io.github.sceneview.ar.arcore.configure
+import io.github.sceneview.arsceneview.arcore.configure
 
 open class TerrainAnchorNode private constructor(
     engine: Engine,

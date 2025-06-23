@@ -1,4 +1,4 @@
-package io.github.sceneview.ar.node
+package io.github.sceneview.arsceneview.node
 
 import com.google.android.filament.Engine
 import com.google.ar.core.AugmentedImage

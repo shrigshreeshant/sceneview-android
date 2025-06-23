@@ -1,6 +1,7 @@
-package io.github.sceneview.ar
+package io.github.sceneview.arsceneview
 
 import android.Manifest
+import android.R
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -19,7 +20,7 @@ import com.google.ar.core.Config
 import com.google.ar.core.Session
 import com.google.ar.core.TrackingFailureReason
 import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException
-import io.github.sceneview.ar.arcore.ARSession
+import io.github.sceneview.arsceneview.arcore.ARSession
 
 /**
  * ### Assumed distance in meters from the device camera to the surface on which user will try to
@@ -209,7 +210,7 @@ class ARCore(
         // Permission denied with checking "Do not ask again".
         Toast.makeText(
             activity,
-            activity.getString(R.string.sceneview_camera_permission_required),
+            activity.getString(R.string.ok),
             Toast.LENGTH_LONG
         ).show()
         // Launch Application Setting to grant permission
@@ -261,17 +262,17 @@ class ARCore(
 
 fun TrackingFailureReason.getDescription(context: Context) = when (this) {
     TrackingFailureReason.NONE -> ""
-    TrackingFailureReason.BAD_STATE -> context.getString(R.string.sceneview_bad_state_message)
+    TrackingFailureReason.BAD_STATE -> context.getString(R.string.search_go)
     TrackingFailureReason.INSUFFICIENT_LIGHT -> context.getString(
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.R) {
-            R.string.sceneview_insufficient_light_message
+            R.string.search_go
         } else {
-            R.string.sceneview_insufficient_light_android_s_message
+            R.string.search_go
         }
     )
 
-    TrackingFailureReason.EXCESSIVE_MOTION -> context.getString(R.string.sceneview_excessive_motion_message)
-    TrackingFailureReason.INSUFFICIENT_FEATURES -> context.getString(R.string.sceneview_insufficient_features_message)
-    TrackingFailureReason.CAMERA_UNAVAILABLE -> context.getString(R.string.sceneview_camera_unavailable_message)
-    else -> context.getString(R.string.sceneview_unknown_tracking_failure, this)
+    TrackingFailureReason.EXCESSIVE_MOTION -> context.getString(R.string.search_go)
+    TrackingFailureReason.INSUFFICIENT_FEATURES -> context.getString(R.string.search_go)
+    TrackingFailureReason.CAMERA_UNAVAILABLE -> context.getString(R.string.search_go)
+    else -> context.getString(R.string.search_go, this)
 }

@@ -1,4 +1,4 @@
-package io.github.sceneview.ar.node
+package io.github.sceneview.arsceneview.node
 
 import android.view.MotionEvent
 import com.google.android.filament.Engine
@@ -10,10 +10,10 @@ import com.google.ar.core.Point
 import com.google.ar.core.Pose
 import com.google.ar.core.Session
 import com.google.ar.core.TrackingState
-import io.github.sceneview.ar.arcore.createAnchor
-import io.github.sceneview.ar.arcore.isTracking
-import io.github.sceneview.ar.arcore.position
-import io.github.sceneview.ar.arcore.transform
+import io.github.sceneview.arsceneview.arcore.createAnchor
+import io.github.sceneview.arsceneview.arcore.isTracking
+import io.github.sceneview.arsceneview.arcore.position
+import io.github.sceneview.arsceneview.arcore.transform
 import io.github.sceneview.gesture.MoveGestureDetector
 import io.github.sceneview.node.Node
 

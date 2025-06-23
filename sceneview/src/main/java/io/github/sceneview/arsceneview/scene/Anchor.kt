@@ -1,4 +1,4 @@
-package io.github.sceneview.ar.scene
+package io.github.sceneview.arsceneview.scene
 
 import com.google.ar.core.Anchor
 
