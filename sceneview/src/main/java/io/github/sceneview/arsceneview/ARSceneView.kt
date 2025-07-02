@@ -2,6 +2,7 @@ package io.github.sceneview.arsceneview
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.util.Size
 import android.view.MotionEvent
 import android.widget.FrameLayout
@@ -473,12 +474,27 @@ open class ARSceneView @JvmOverloads constructor(
      * listeners.
      */
     override fun onFrame(frameTimeNanos: Long) {
-        session?.let { session ->
-            session.updateOrNull()?.let { frame ->
-                onSessionUpdated(session, frame)
-            }
+        if (!updateARSession()) {
+            return // Now this return is valid
         }
         super.onFrame(frameTimeNanos)
+    }
+
+    private fun updateARSession(): Boolean {
+        val currentSession = session ?: return true // Continue with super.onFrame if no session
+
+        return try {
+            currentSession.updateOrNull()?.let { frame ->
+                onSessionUpdated(currentSession, frame)
+            }
+            true // Success
+        } catch (e: com.google.ar.core.exceptions.MissingGlContextException) {
+            Log.w("ARSession", "GL context not available, skipping frame")
+            false // Skip super.onFrame
+        } catch (e: Exception) {
+            Log.e("ARSession", "Error updating AR session", e)
+            false // Skip super.onFrame
+        }
     }
 
     /**
