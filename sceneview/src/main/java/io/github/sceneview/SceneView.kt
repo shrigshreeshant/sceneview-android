@@ -48,6 +48,7 @@ import com.google.android.filament.utils.Manipulator
 import com.google.android.filament.utils.Utils
 import com.google.ar.sceneform.rendering.ResourceManager
 import dev.romainguy.kotlin.math.Float2
+
 import io.github.sceneview.collision.CollisionSystem
 import io.github.sceneview.collision.HitResult
 import io.github.sceneview.environment.Environment
