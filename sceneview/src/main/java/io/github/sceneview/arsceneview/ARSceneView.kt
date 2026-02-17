@@ -240,6 +240,7 @@ open class ARSceneView @JvmOverloads constructor(
      */
     var onSessionUpdated: ((session: Session, frame: Frame) -> Unit)? = null,
 ) : SceneView(
+
     context = context,
     attrs = attrs,
     defStyleAttr = defStyleAttr,
@@ -412,6 +413,7 @@ open class ARSceneView @JvmOverloads constructor(
     private var defaultCameraStream: ARCameraStream? = null
 
     init {
+
         setCameraNode(sharedCameraNode ?: createARCameraNode(engine).also {
             defaultCameraNode = it
         })
@@ -477,8 +479,10 @@ open class ARSceneView @JvmOverloads constructor(
         if (!updateARSession()) {
             return // Now this return is valid
         }
+
         super.onFrame(frameTimeNanos)
     }
+
 
     private fun updateARSession(): Boolean {
         val currentSession = session ?: return true // Continue with super.onFrame if no session

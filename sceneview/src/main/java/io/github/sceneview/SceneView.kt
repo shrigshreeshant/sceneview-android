@@ -91,6 +91,7 @@ typealias FilamentEntityInstance = com.google.android.filament.EntityInstance
  * Ray.
  */
 open class SceneView @JvmOverloads constructor(
+
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,
@@ -551,7 +552,7 @@ open class SceneView @JvmOverloads constructor(
     private var surfaceMirrorer: SurfaceMirrorer? = null
     private var lastFrameTimeNanos: Long? = null
 
-    private var defaultEglContext: EGLContext? = null
+    var defaultEglContext: EGLContext? = null
     private var defaultEngine: Engine? = null
     private var defaultScene: Scene? = null
     private var defaultView: View? = null
